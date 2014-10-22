@@ -31,7 +31,12 @@ var Todos = React.createClass({displayName: 'Todos',
   },
   renderForm: function() {
     var object = TodoStore.new();
-    var options = {};
+    var options = {
+      onSubmit: this.handleSubmit
+    };
     return(TodoForm({object: object, options: options, errors: this.state.errors}));
+  },
+  handleSubmit: function(data) {
+    TodoActions.createTodo(data);
   }
 });

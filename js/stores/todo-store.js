@@ -14,7 +14,6 @@ var TodoStore = (function() {
       }
     },
     all: function() {
-      _todos = [{id: 1, title: "yo"}];
       this.triggerChange();
     },
     addChangeEvent: function(callback) {
@@ -66,9 +65,6 @@ var TodoStore = (function() {
           this.create(action.data);
           break;
         case ActionTypes.UPDATE_TODO:
-          this.update(action.data);
-          break;
-        case ActionTypes.CURRENT_TODO:
           this.update(action.data);
           break;
         case ActionTypes.DESTROY_TODO:
