@@ -17,7 +17,8 @@ var Todo = React.createClass({displayName: 'Todo',
     return (
       React.DOM.div({className: "todo"}, 
         this.state.editing ? this.renderForm() : this.renderTodo(), 
-        React.DOM.span(null, React.DOM.a({href: "#", onClick: this.editTodo}, "Edit"))
+        React.DOM.span(null, React.DOM.a({href: "#", onClick: this.editTodo}, "Edit")), 
+        React.DOM.span(null, React.DOM.a({href: "#", onClick: this.deleteTodo}, "Delete"))
       )
     );
   },
@@ -32,6 +33,9 @@ var Todo = React.createClass({displayName: 'Todo',
   },
   editTodo: function() {
     this.setState({ editing: true });
+  },
+  deleteTodo: function() {
+    this.props.handleDelete(this.props.todo.id);
   }
 
 });

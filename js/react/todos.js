@@ -25,7 +25,7 @@ var Todos = React.createClass({displayName: 'Todos',
   renderTodos: function() {
     var todos = [];
     this.state.todos.forEach(function(todo) {
-      todos.push(Todo({key: todo.id, todo: todo, errors: this.state.errors, handleEdit: this.handleEdit}));
+      todos.push(Todo({key: todo.id, todo: todo, errors: this.state.errors, handleEdit: this.handleEdit, handleDelete: this.handleDelete}));
     }.bind(this));
     return todos;
   },
@@ -41,5 +41,8 @@ var Todos = React.createClass({displayName: 'Todos',
   },
   handleEdit: function(data) {
     TodoActions.updateTodo(data);
+  },
+  handleDelete: function(id) {
+    TodoActions.destroyTodo(id);
   }
 });

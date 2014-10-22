@@ -16,8 +16,8 @@ var Todos = React.createClass({displayName: 'Todos',
   },
   render: function() {
     return (
-      React.DOM.div({className: "todos"}, 
-        this.renderForm(), 
+      React.DOM.div({className: "todos"},
+        this.renderForm(),
         this.renderTodos()
       )
     );

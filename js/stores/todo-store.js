@@ -47,7 +47,7 @@ var TodoStore = (function() {
     },
     destroy: function(id) {
       var index = this.find(id);
-      if(!index) return this.triggerFailToTakeAction();
+      if(index === undefined) return this.triggerFailToTakeAction();
       _todos.splice(index, 1);
       this.triggerChange();
     },

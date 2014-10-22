@@ -18,6 +18,7 @@ var Todo = React.createClass({
       <div className="todo">
         {this.state.editing ? this.renderForm() : this.renderTodo()}
         <span><a href="#" onClick={this.editTodo}>Edit</a></span>
+        <span><a href="#" onClick={this.deleteTodo}>Delete</a></span>
       </div>
     );
   },
@@ -32,6 +33,9 @@ var Todo = React.createClass({
   },
   editTodo: function() {
     this.setState({ editing: true });
+  },
+  deleteTodo: function() {
+    this.props.handleDelete(this.props.todo.id);
   }
 
 });
