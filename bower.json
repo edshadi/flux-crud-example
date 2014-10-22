@@ -1,0 +1,6 @@
+{
+  "name": "flux CRUD",
+  "dependencies": {
+    "react": "~0.11.2"
+  }
+}
