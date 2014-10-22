@@ -4,34 +4,24 @@
 var Todos = React.createClass({displayName: 'Todos',
   getInitialState: function() {
     return {
-      todos: [],
-      errors: []
+      todos: []
     };
   },
   componentDidMount: function() {
     TodoStore.addChangeEvent(function() {
       this.setState({ todos: TodoStore.todos() })
     }.bind(this));
-    TodoStore.all();
   },
   render: function() {
     return (
-      React.DOM.div({className: "todos"}, 
-        this.renderForm(), 
-        this.renderTodos()
-      )
+      React.DOM.div(null, this.renderTodos())
     );
   },
   renderTodos: function() {
     var todos = [];
     this.state.todos.forEach(function(todo) {
-      todos.push(Todo({key: todo.id, todo: todo}));
+      todos.push(Todo({todo: todo}));
     });
     return todos;
-  },
-  renderForm: function() {
-    var object = TodoStore.new();
-    var options = {};
-    return(TodoForm({object: object, options: options, errors: this.state.errors}));
   }
 });

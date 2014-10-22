@@ -14,7 +14,8 @@ var TodoStore = (function() {
       }
     },
     all: function() {
-      return [];
+      _todos = [{id: 1, title: "yo"}];
+      this.triggerChange();
     },
     addChangeEvent: function(callback) {
       bean.on(this, CHANGE_EVENT, callback);
@@ -29,10 +30,10 @@ var TodoStore = (function() {
       bean.off(this, FAIL_TO_CREATE_EVENT, obj);
     },
     triggerFailToTakeAction: function(data) {
-      bean.trigger(this, FAIL_TO_CREATE_EVENT, data);
+      bean.fire(this, FAIL_TO_CREATE_EVENT, data);
     },
     triggerChange: function(data) {
-      bean.trigger(this, CHANGE_EVENT, data);
+      bean.fire(this, CHANGE_EVENT, data);
     },
     create: function(todo) {
       todo.id = _todos.length + 1;
