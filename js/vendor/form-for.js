@@ -5,15 +5,14 @@
 
 var Input = require('./input.react');
 var FormErrors = require('./form-errors.react');
-var SubmitInput = require('./submit-input.react');
 module.exports = FormFor = React.createClass({displayName: 'FormFor',
   render: function() {
     if(Object.keys(this.props.object).length === 0) return(React.DOM.div(null));
     return (
-      React.DOM.form({onSubmit: this.handleSubmit}, 
-        FormErrors({errors: this.props.errors}), 
-        this.inputs(), 
-        SubmitInput({ref: "input", data: {value: this.submitText(), className: "btn btn-default"}})
+      React.DOM.form({onSubmit: this.handleSubmit},
+        FormErrors({errors: this.props.errors}),
+        this.inputs(),
+        React.DOM.input({type: "submit", value: this.submitText(), className: "btn btn-default"})
       )
     );
   },
@@ -65,7 +64,7 @@ module.exports = FormFor = React.createClass({displayName: 'FormFor',
 
 });
 
-},{"./form-errors.react":7,"./input.react":9,"./submit-input.react":14}],2:[function(require,module,exports){
+},{"./form-errors.react":7,"./input.react":9}],2:[function(require,module,exports){
 /**
  * @jsx React.DOM
  */
@@ -202,14 +201,13 @@ var DateInput = require('./date-input.react');
 var ColorInput = require('./color-input.react');
 var DatetimeInput = require('./datetime-input.react');
 var EmailInput = require('./email-input.react');
-var SubmitInput = require('./submit-input.react');
 
 var Input = React.createClass({displayName: 'Input',
   render: function() {
     var data = this.props.data;
     return (
-      React.DOM.div(null, 
-        React.DOM.div({className: "form-group"}, 
+      React.DOM.div(null,
+        React.DOM.div({className: "form-group"},
           this.input()
         )
       )
@@ -223,9 +221,6 @@ var Input = React.createClass({displayName: 'Input',
         break;
       case 'number':
         return(NumberInput({ref: "input", data: {name: data.name, defaultValue: data.value, placeholder: this.placeholder(), className: this.props.options.className}}))
-        break;
-      case 'submit':
-        return(SubmitInput({ref: "input", data: {value: data.value, className: this.props.options.className}}))
         break;
       case 'color':
         return(ColorInput({ref: "input", data: {name: data.name, defaultValue: data.value, className: this.props.options.className}}))
@@ -285,7 +280,7 @@ var Input = React.createClass({displayName: 'Input',
 
 module.exports = Input;
 
-},{"./checkbox-input.react":2,"./color-input.react":3,"./date-input.react":4,"./datetime-input.react":5,"./email-input.react":6,"./hidden-input.react":8,"./number-input.react":10,"./password-input.react":12,"./select-input.react":13,"./submit-input.react":14,"./text-input.react":15,"./textarea-input.react":16}],10:[function(require,module,exports){
+},{"./checkbox-input.react":2,"./color-input.react":3,"./date-input.react":4,"./datetime-input.react":5,"./email-input.react":6,"./hidden-input.react":8,"./number-input.react":10,"./password-input.react":12,"./select-input.react":13,"./text-input.react":14,"./textarea-input.react":15}],10:[function(require,module,exports){
 /**
  * @jsx React.DOM
  */
@@ -350,7 +345,7 @@ var SelectInput = React.createClass({displayName: 'SelectInput',
       options.push(OptionForSelect({key: value.value, value: value.value, show: value.show}))
     }.bind(this))
     return (
-      React.DOM.select({ref: data.name, defaultValue: data.value, className: data.className, id: data.id}, 
+      React.DOM.select({ref: data.name, defaultValue: data.value, className: data.className, id: data.id},
         options
       )
     );
@@ -360,23 +355,6 @@ var SelectInput = React.createClass({displayName: 'SelectInput',
 module.exports = SelectInput;
 
 },{"./options-for-select.react":11}],14:[function(require,module,exports){
-/**
- * @jsx React.DOM
- */
-
-var SubmitInput = React.createClass({displayName: 'SubmitInput',
-  render: function() {
-    var data = this.props.data;
-    return (
-      React.DOM.input({ref: data.value, type: "submit", value: data.value, className: data.className})
-    );
-  }
-
-});
-
-module.exports = SubmitInput;
-
-},{}],15:[function(require,module,exports){
 /**
  * @jsx React.DOM
  */
@@ -393,7 +371,7 @@ var TextInput = React.createClass({displayName: 'TextInput',
 
 module.exports = TextInput;
 
-},{}],16:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 /**
  * @jsx React.DOM
  */

@@ -41,7 +41,7 @@ var TodoStore = (function() {
     },
     update: function(todo) {
       var index = this.find(todo.id);
-      if(!index) return this.triggerFailToTakeAction();
+      if(index === undefined) return this.triggerFailToTakeAction();
       _todos[index] = todo;
       this.triggerChange();
     },
@@ -53,9 +53,12 @@ var TodoStore = (function() {
     },
 
     find: function(id) {
-      _todos.forEach(function(todo, i) {
-        if (todo.id === id) return i;
+      var id = parseInt(id);
+      var found = undefined;
+      _todos.some(function(todo, i) {
+        if(todo.id === id) found = i;
       });
+      return found;
     },
 
     payload: function(payload) {
