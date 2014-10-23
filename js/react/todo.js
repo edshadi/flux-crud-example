@@ -11,7 +11,7 @@ var Todo = React.createClass({
     };
   },
   componentDidMount: function() {
-    TodoStore.addChangeEvent(function() {
+    TodoStore.addChangeEvent(function(data) {
       if(this.isMounted()) this.setState({ editing: false });
     }.bind(this))
   },

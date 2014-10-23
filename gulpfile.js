@@ -17,7 +17,7 @@ var paths = {
 // Dependency tasks should call the callback to tell the parent task that
 // they're done.
 gulp.task('clean', function(done) {
-  del(['js/build'], done);
+  del(['build'], done);
 });
 
 // Our JS task. It will Browserify our code and compile React JSX files.
@@ -27,7 +27,7 @@ gulp.task('js', ['clean'], function() {
     .transform(reactify)
     .bundle()
     .pipe(source('build/build.js'))
-    .pipe(gulp.dest('./js/'));
+    .pipe(gulp.dest('./'));
 });
 
 // Rerun tasks whenever a file changes.
