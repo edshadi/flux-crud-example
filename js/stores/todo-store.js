@@ -45,6 +45,7 @@ var TodoStore = (function() {
     },
     update: function(todo) {
       var index = this.find(todo.id);
+      todo.id = parseInt(todo.id);
       if(index === undefined) return this.triggerFailToTakeAction();
       _todos[index] = todo;
       this.triggerChange();
