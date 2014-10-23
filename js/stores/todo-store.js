@@ -1,3 +1,7 @@
+var TodoDispatcher = require('../dispatchers/todo-dispatcher');
+var TodoConstants = require('../constants/todo-constants');
+var bean = require('bean');
+
 var TodoStore = (function() {
   var _todos = [];
   var CHANGE_EVENT = 'change';
@@ -81,3 +85,5 @@ var TodoStore = (function() {
 }())
 
 TodoDispatcher.register(TodoStore.payload.bind(TodoStore));
+
+module.exports = TodoStore;

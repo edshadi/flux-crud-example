@@ -278,3 +278,5 @@ var Dispatcher = (function() {
   };
   return _Dispatcher;
 }())
+
+module.exports = Dispatcher;

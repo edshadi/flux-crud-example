@@ -6,3 +6,5 @@ var TodoConstants = {
     DESTROY_TODO: 'DESTROY_TODO'
   }
 };
+
+module.exports = TodoConstants;
