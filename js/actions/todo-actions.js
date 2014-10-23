@@ -13,12 +13,6 @@ var TodoActions = {
       data: data
     });
   },
-  makeTodoCurrent: function(data) {
-    TodoDispatcher.handleViewAction({
-      type: TodoConstants.ActionTypes.CURRENT_TODO,
-      data: data
-    });
-  },
   destroyTodo: function(id) {
     TodoDispatcher.handleViewAction({
       type: TodoConstants.ActionTypes.DESTROY_TODO,

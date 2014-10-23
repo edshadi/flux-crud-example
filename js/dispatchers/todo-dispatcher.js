@@ -1,6 +1,6 @@
 var Dispatcher = require('./dispatcher');
-var merge = require('merge');
-var TodoDispatcher = merge(new Dispatcher(), {
+var copyProperties = require('react/lib/copyProperties');
+var TodoDispatcher = copyProperties(new Dispatcher(), {
   /**
    * @param {object} action The details of the action, including the action's
    * type and additional data coming from the server.

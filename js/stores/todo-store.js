@@ -18,25 +18,7 @@ var TodoStore = (function() {
       }
     },
     all: function() {
-      this.triggerChange();
-    },
-    addChangeEvent: function(callback) {
-      bean.on(this, CHANGE_EVENT, callback);
-    },
-    removeChangeEvent: function(obj) {
-      bean.off(this, CHANGE_EVENT, obj);
-    },
-    addFailToTakeAction: function(callback) {
-      bean.on(this, FAIL_TO_CREATE_EVENT, callback);
-    },
-    removeFailToTakeAction: function(obj) {
-      bean.off(this, FAIL_TO_CREATE_EVENT, obj);
-    },
-    triggerFailToTakeAction: function(data) {
-      bean.fire(this, FAIL_TO_CREATE_EVENT, data);
-    },
-    triggerChange: function(data) {
-      bean.fire(this, CHANGE_EVENT, data);
+      this.triggerChange('yo');
     },
     create: function(todo) {
       todo.id = _todos.length + 1;
@@ -65,7 +47,24 @@ var TodoStore = (function() {
       });
       return found;
     },
-
+    addChangeEvent: function(callback) {
+      bean.on(this, CHANGE_EVENT, callback);
+    },
+    removeChangeEvent: function(obj) {
+      bean.off(this, CHANGE_EVENT, obj);
+    },
+    addFailToTakeAction: function(callback) {
+      bean.on(this, FAIL_TO_CREATE_EVENT, callback);
+    },
+    removeFailToTakeAction: function(obj) {
+      bean.off(this, FAIL_TO_CREATE_EVENT, obj);
+    },
+    triggerFailToTakeAction: function(data) {
+      bean.fire(this, FAIL_TO_CREATE_EVENT, data);
+    },
+    triggerChange: function(data) {
+      bean.fire(this, CHANGE_EVENT, data);
+    },
     payload: function(payload) {
       var action = payload.action;
       switch(action.type) {
