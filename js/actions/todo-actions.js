@@ -2,6 +2,7 @@ var TodoDispatcher = require('../dispatchers/todo-dispatcher');
 var TodoConstants = require('../constants/todo-constants');
 var TodoActions = {
   createTodo: function(data) {
+    console.log("I'm the create action, calling the dispatcher");
     TodoDispatcher.handleViewAction({
       type: TodoConstants.ActionTypes.CREATE_TODO,
       data: data

@@ -19,7 +19,7 @@ var Todo = React.createClass({
     return (
       <div className="todo">
         {this.state.editing ? this.renderForm() : this.renderTodo()}
-        <span><a href="#" onClick={this.editTodo}>Edit</a></span>
+        <span><a href="#" onClick={this.editTodo}>Edit | </a></span>
         <span><a href="#" onClick={this.deleteTodo}>Delete</a></span>
       </div>
     );

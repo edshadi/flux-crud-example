@@ -156,6 +156,7 @@ var Dispatcher = (function() {
    * @return {string}
    */
   _Dispatcher.prototype.register=function(callback) {"use strict";
+    console.log("a store registered callback with the dispatcher");
     var id = _prefix + _lastID++;
     this.$Dispatcher_callbacks[id] = callback;
     return id;
@@ -217,6 +218,7 @@ var Dispatcher = (function() {
       !this.$Dispatcher_isDispatching,
       'Dispatch.dispatch(...): Cannot dispatch in the middle of a dispatch.'
     );
+    console.log("dispatching to all stores");
     this.$Dispatcher_startDispatching(payload);
     try {
       for (var id in this.$Dispatcher_callbacks) {

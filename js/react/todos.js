@@ -6,7 +6,7 @@ var Todo = require('./todo');
 var TodoForm = require('./todo-form');
 var TodoActions = require('../actions/todo-actions');
 var TodoStore = require('../stores/todo-store');
-
+var renderCount = 0;
 var Todos = React.createClass({
   getInitialState: function() {
     return {
@@ -16,11 +16,13 @@ var Todos = React.createClass({
   },
   componentDidMount: function() {
     TodoStore.addChangeEvent(function() {
+      console.log("change happened on the store, I'm updating my state");
       if(this.isMounted()) this.setState({ todos: TodoStore.todos() })
     }.bind(this));
     TodoStore.all();
   },
   render: function() {
+    console.log("render " + ++renderCount);
     return (
       <div className="todos">
         {this.renderForm()}
@@ -43,6 +45,7 @@ var Todos = React.createClass({
     return(<TodoForm object={object} options={options} errors={this.state.errors} />);
   },
   handleSubmit: function(data) {
+    console.log("I'm calling the action");
     TodoActions.createTodo(data);
   },
   handleEdit: function(data) {

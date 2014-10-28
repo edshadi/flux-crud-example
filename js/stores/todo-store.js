@@ -18,9 +18,10 @@ var TodoStore = (function() {
       }
     },
     all: function() {
-      this.triggerChange('yo');
+      this.triggerChange();
     },
     create: function(todo) {
+      console.log("creating a todo");
       todo.id = _todos.length + 1;
       _todos.push(todo);
       this.triggerChange(todo);
@@ -63,12 +64,14 @@ var TodoStore = (function() {
       bean.fire(this, FAIL_TO_CREATE_EVENT, data);
     },
     triggerChange: function(data) {
+      console.log("store updated todos, I'm triggering change");
       bean.fire(this, CHANGE_EVENT, data);
     },
     payload: function(payload) {
       var action = payload.action;
       switch(action.type) {
         case ActionTypes.CREATE_TODO:
+          console.log("received action from the dispatcher");
           this.create(action.data);
           break;
         case ActionTypes.UPDATE_TODO:
