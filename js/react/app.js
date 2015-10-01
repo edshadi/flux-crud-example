@@ -1,8 +1,8 @@
 /**
  * @jsx React.DOM
  */
-var React = require('React');
+var React = require('react');
 var Todos = require('./todos');
 window.onload = function() {
-  React.renderComponent(<Todos />, document.body);
+  React.render(<Todos />, document.body);
 }

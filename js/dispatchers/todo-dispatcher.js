@@ -1,5 +1,6 @@
 var Dispatcher = require('./dispatcher');
-var copyProperties = require('react/lib/copyProperties');
+var copyProperties = require('react/lib/Object.assign');
+
 var TodoDispatcher = copyProperties(new Dispatcher(), {
   /**
    * @param {object} action The details of the action, including the action's

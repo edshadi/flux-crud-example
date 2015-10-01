@@ -1,7 +1,7 @@
 /**
  * @jsx React.DOM
  */
-var React = require('React');
+var React = require('react');
 var Todo = require('./todo');
 var TodoForm = require('./todo-form');
 var TodoActions = require('../actions/todo-actions');

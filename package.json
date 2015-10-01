@@ -3,12 +3,13 @@
   "description": "A starter project for AngularJS working with ExpressJS",
   "repository": "https://github.com/edshadi/react-form-for",
   "dependencies": {
-    "browserify": "~6.1.0",
-    "gulp": "~3.8.8",
-    "del": "~0.1.3",
-    "reactify": "~0.14.0",
-    "vinyl-source-stream": "~1.0.0",
-    "react": "~0.11.2",
-    "merge": "~1.2.0"
+    "browserify": "^11.1.0",
+    "gulp": "^3.8.11",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0",
+    "react": "^0.13.3",
+    "del": "^2.0.2",
+    "merge": "1.2.0",
+    "bean": "^1.0.15"
   }
 }
