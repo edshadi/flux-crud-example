@@ -1,7 +1,7 @@
 /**
  * @jsx React.DOM
  */
-var React = require('React');
+var React = require('react');
 var TodoForm = require('./todo-form');
 var TodoStore = require('../stores/todo-store');
 var Todo = React.createClass({

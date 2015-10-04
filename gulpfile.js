@@ -13,15 +13,9 @@ var paths = {
   js: ['./js/**/*.js'],
 };
 
-// An example of a dependency task, it will be run before the css/js tasks.
-// Dependency tasks should call the callback to tell the parent task that
-// they're done.
-gulp.task('clean', function(done) {
-  del(['build'], done);
-});
 
 // Our JS task. It will Browserify our code and compile React JSX files.
-gulp.task('js', ['clean'], function() {
+gulp.task('js', function() {
   // Browserify/bundle the JS.
   browserify(paths.app_js)
     .transform(reactify)
